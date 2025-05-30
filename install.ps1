@@ -4,7 +4,7 @@
 # Set RIME_HOME for Windows
 $PLATFORM = "windows"
 $HOME_DIR = $env:USERPROFILE
-$RIME_HOME = (Get-Location).Path
+$RIME_HOME = Join-Path $env:APPDATA "Rime"
 
 # Check if RIME is installed (user config exists)
 $RimeConfigPath = Join-Path $env:APPDATA "Rime\default.custom.yaml"
@@ -16,9 +16,9 @@ if (-not (Test-Path $RimeConfigPath)) {
 
 function Install-Boshiamy($name) {
     $table_file = "$name.db"
-    $dict_file = "$name.dict.yaml"
-    $schema_file = "$name.schema.yaml"
-
+    $dict_file = "$name.dict.yaml" 
+    $schema_file = "$name.schema.yaml" 
+  
     if (Test-Path $table_file) {
         .\ibus2rime.ps1 $table_file
 

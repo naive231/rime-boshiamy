@@ -2,7 +2,7 @@
 #
 # install.sh
 #
-# 一鍵安裝嘸蝦米 for RIME 的程式
+# One-click install Boshiamy for RIME
 #
 
 # Detects Platform
@@ -38,12 +38,12 @@ function install_boshiamy() {
 
     cp $dict_file $schema_file $RIME_HOME
 
-    echo "$name -- \033[1;32m完成\033[m"
+    echo "$name -- \033[1;32mDone\033[m"
     echo ""
 
     return 0
   else
-    echo "找不到 $table_file 檔案，跳過。"
+    echo "File $table_file not found, skipping."
     return 1
   fi
 }
@@ -52,20 +52,20 @@ install_boshiamy boshiamy_t
 install_boshiamy boshiamy_j
 
 if [[ $PLATFORM == "unknown" ]]; then
-  echo "\033[31m偵測到不支援的作業系統\033[m"
-  echo "轉換完成的 *.yaml 會放在此資料夾，請自行複製到 RIME 的用戶資料夾。"
+  echo "\033[31mUnsupported OS detected\033[m"
+  echo "Converted *.yaml files will be placed in this folder. Please copy them to your RIME user folder manually."
   echo ""
 else
-  echo "表格轉換完成之後，請編輯 \033[1;33m$RIME_HOME/default.custom.yaml\033[m 並把嘸蝦米輸入法加進去，例如："
+  echo "After conversion, please edit \033[1;33m$RIME_HOME/default.custom.yaml\033[m and add Boshiamy input method, for example:"
   echo ""
   echo "    patch:"
-  echo "      schema_list:  # 對於列表類型，現在無有辦法指定如何添加、消除或單一修改某項，於是要在定製檔中將整個列表替換！"
+  echo "      schema_list:  # For list types, you need to replace the whole list in the custom file!"
   echo "        - schema: luna_pinyin"
   echo "        - schema: cangjie5"
   echo "        - schema: luna_pinyin_fluency"
   echo "        - schema: luna_pinyin_simp"
   echo "        - schema: luna_pinyin_tw"
-  echo "\033[32m        - schema: boshiamy_t  # 嘸蝦米中文模式\033[m"
-  echo "\033[32m        - schema: boshiamy_j  # 嘸蝦米日文模式\033[m"
+  echo "\033[32m        - schema: boshiamy_t  # Boshiamy Chinese mode\033[m"
+  echo "\033[32m        - schema: boshiamy_j  # Boshiamy Japanese mode\033[m"
   echo    ""
 fi

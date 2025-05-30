@@ -43,10 +43,10 @@ $Version = & $Sqlite3 $DbFile "SELECT val FROM ime where attr = 'serial_number';
 @"
 # $Description
 #
-# 本字典檔是從 ibus 的表格檔轉換而來。
-# 字典表（"..." 那一行以下）之著作權屬行易有限公司所有。
+# This dictionary file is converted from the ibus table file.
+# The copyright of the dictionary table (below the "..." line) belongs to E-Typist Co., Ltd.
 #
-# 僅限擁有正版授權之個人使用。不許散佈。
+# For use only by individuals with a valid license. Redistribution is not permitted.
 
 ---
 name: $FileName
